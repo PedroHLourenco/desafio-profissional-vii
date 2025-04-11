@@ -1,4 +1,5 @@
 # Problemática
+
 Você foi contratado para desenvolver um sistema de gerenciamento para um jogo de RPG (Role-Playing Game). O sistema deve permitir o gerenciamento de Personagens e Itens Mágicos. Cada personagem pode carregar vários itens mágicos, e cada item mágico está vinculado a um personagem.
 
 ## Entidades e Atributos
@@ -39,6 +40,7 @@ Os atributos Força e Defesa, podem ser no máximo 10.
 Não podem existir Itens com zero de Defesa e zero de Força.
 
 #### Atributos Item Mágico
+
 - Identificador;
 - Nome;
 - Tipo do Item (Arma, Armadura e Amuleto);
@@ -48,6 +50,7 @@ Não podem existir Itens com zero de Defesa e zero de Força.
 ## Features
 
 Serão necessários os mapeamentos abaixo (Entrega dessa documentação por Swagger, ReadMe ou similares).
+
 - Cadastrar Personagem;
 - Cadastrar Item Mágico;
 - Listar Personagem;
@@ -61,3 +64,26 @@ Serão necessários os mapeamentos abaixo (Entrega dessa documentação por Swag
 - Listar Itens Mágicos por Personagem;
 - Remover Item Mágico do Personagem;
 - Buscar Amuleto do Personagem;
+
+# Rotas Utilizadas no Projeto
+
+## Personagem
+
+- POST /characters - Cria um novo personagem
+- GET /characters - Lista todos os personagens
+- GET /characters/:id - Busca um personagem pelo ID
+- PUT /characters/:id/adventurer-name - Atualiza o nome aventureiro
+- DELETE /characters/:id - Deleta um personagem
+
+## Item Mágico
+
+- POST /magic-items - Cria um novo item mágico
+- GET /magic-items - Lista todos os itens mágicos
+- GET /magic-items/:id - Busca um item mágico por ID
+
+## Relacionamentos
+
+- POST /characters/:characterId/magic-items/:magicItemId - Adiciona um item ao personagem
+- GET /characters/:characterId/magic-items - Lista todos os itens equipados pelo personagem
+- DELETE /characters/:characterId/magic-items/:magicItemId - Remove um item do personagem
+- GET /characters/:characterId/amulet - Busca o amuleto equipado pelo personagem
